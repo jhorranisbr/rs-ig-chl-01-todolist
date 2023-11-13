@@ -1,0 +1,25 @@
+button[type="submit"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 1rem;
+
+  border-radius: 8px;
+  border: none;
+
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--gray-100);
+  line-height: 1.4;
+
+  background: var(--blue-dark);
+
+  transition: background 0.1s;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+
+  background: var(--blue);
+}
