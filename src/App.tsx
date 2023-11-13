@@ -1,7 +1,13 @@
 import "./global.css";
 
+import { Header } from "./componets/Header";
+
 function App() {
-  return <h1>ToDo List</h1>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
