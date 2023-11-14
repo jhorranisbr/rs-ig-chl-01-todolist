@@ -45,6 +45,10 @@ function App() {
     setTasks(tasksToggled);
   }
 
+  function deleteTask(currentTask: TaskItem) {
+    setTasks((state) => state.filter((task) => currentTask.text !== task.text));
+  }
+
   return (
     <div>
       <Header />
@@ -81,7 +85,11 @@ function App() {
           {tasks.length === 0 && <Empty />}
           {tasks.length > 0 &&
             tasks.map((task) => (
-              <Task task={task} onCompleteTask={completeTask} />
+              <Task
+                task={task}
+                onCompleteTask={completeTask}
+                onDeleteTask={deleteTask}
+              />
             ))}
         </section>
       </main>

@@ -10,11 +10,16 @@ export interface TaskItem {
 interface TaskProps {
   task: TaskItem;
   onCompleteTask: (task: TaskItem) => void;
+  onDeleteTask: (task: TaskItem) => void;
 }
 
-export function Task({ task, onCompleteTask }: TaskProps) {
+export function Task({ task, onCompleteTask, onDeleteTask }: TaskProps) {
   function handleCompleteTask() {
     onCompleteTask(task);
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(task);
   }
 
   return (
@@ -30,7 +35,7 @@ export function Task({ task, onCompleteTask }: TaskProps) {
 
       <p className={task.checked ? styles.underline : ""}>{task.text}</p>
 
-      <button className={styles.deleteIconWrapper}>
+      <button className={styles.deleteIconWrapper} onClick={handleDeleteTask}>
         <Trash size={14} className={styles.deleteIcon} />
       </button>
     </div>
