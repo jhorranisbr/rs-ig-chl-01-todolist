@@ -11,7 +11,7 @@
 }
 
 .task + .task {
-  margin-top: 2rem;
+  margin-top: 0.75rem;
 }
 
 .task .inputIconWrapper,
