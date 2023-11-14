@@ -1,4 +1,4 @@
-input {
+.content input {
   width: 100%;
 
   padding: 1rem;
@@ -13,7 +13,7 @@ input {
   border: 1px solid var(--gray-700);
 }
 
-input:focus {
+.content input:focus {
   color: var(--gray-100);
   border-color: var(--purple-dark);
 }

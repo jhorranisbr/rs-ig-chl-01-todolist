@@ -1,0 +1,92 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  padding: 1rem;
+
+  background: var(--gray-500);
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+}
+
+.task + .task {
+  margin-top: 2rem;
+}
+
+.task .inputIconWrapper,
+.task .deleteIconWrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.task .input {
+  width: 1.125rem;
+  height: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+  background: transparent;
+
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.task .input:hover {
+  border-color: var(--blue-dark);
+}
+
+.task .inputDone {
+  border: 2px solid var(--purple-dark);
+  background: var(--purple-dark);
+
+  transition: border-color 0.1s, background 0.1s;
+}
+
+.task .inputDone:hover {
+  border: 2px solid var(--purple);
+  background: var(--purple);
+}
+
+.task .inputIcon {
+  color: var(--white);
+}
+
+.task .deleteIcon {
+  color: var(--white);
+
+  transition: color 0.1s;
+}
+
+.task p {
+  flex: 1;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--gray-100);
+}
+
+.task p.underline {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.task .deleteIconWrapper:hover {
+  background: var(--gray-400);
+}
+
+.task .deleteIconWrapper:hover .deleteIcon {
+  color: var(--danger);
+}

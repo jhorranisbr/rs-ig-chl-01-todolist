@@ -9,6 +9,7 @@ import { Input } from "./componets/Input";
 import { PlusCircle } from "@phosphor-icons/react";
 
 import { Empty } from "./componets/Empty";
+import { Task } from "./componets/Task";
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
           </header>
 
           <Empty />
+          <Task checked />
+          <Task checked={false} />
         </section>
       </main>
     </div>
