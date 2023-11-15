@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 import "./global.css";
 
@@ -17,7 +17,11 @@ function App() {
   const [tasks, setTasks] = useState<TaskItem[]>([]);
   const [newTaskText, setNewTaskText] = useState("");
 
+  const taskDoneText = `${tasks.filter((task) => !!task.checked).length} de
+  ${tasks.length}`;
+
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
     setNewTaskText(event.target.value);
   }
 
@@ -31,6 +35,12 @@ function App() {
         text: newTaskText,
       },
     ]);
+
+    setNewTaskText("");
+  }
+
+  function handleNewTaskInvalid(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("Esse campo é obrigatório parça!");
   }
 
   function completeTask(currentTask: TaskItem) {
@@ -58,7 +68,7 @@ function App() {
             placeholder="Adicione uma nova tarefa"
             value={newTaskText}
             onChange={handleNewTaskChange}
-            // onInvalid={handleNewTaskInvalid}
+            onInvalid={handleNewTaskInvalid}
             required
           />
           <Button type="submit">
@@ -75,10 +85,7 @@ function App() {
 
             <div className={`${styles.tasksDone} ${styles.tasksInfo}`}>
               Concluídas
-              <span className={styles.tasksCounter}>
-                {tasks.filter((task) => !!task.checked).length} de{" "}
-                {tasks.length}
-              </span>
+              <span className={styles.tasksCounter}>{taskDoneText}</span>
             </div>
           </header>
 
