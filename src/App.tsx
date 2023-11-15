@@ -93,6 +93,7 @@ function App() {
           {tasks.length > 0 &&
             tasks.map((task) => (
               <Task
+                key={task.text}
                 task={task}
                 onCompleteTask={completeTask}
                 onDeleteTask={deleteTask}
